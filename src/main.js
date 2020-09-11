@@ -18,6 +18,7 @@ $(document).ready(function() {
   $('#getRates').click(function() {
     $("#output").html("");
     $("#clickP").show();
+    $("#details p").hide();
     let currency = $("#currency").val();
     CurrencyExchange.getRates(currency)
       .then(function(response) {

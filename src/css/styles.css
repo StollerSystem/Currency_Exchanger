@@ -4,12 +4,21 @@ body {
 }
 
 h1 {
+  margin-top: 20px;
   text-align: center;
+  text-shadow: 4px 4px #000000; 
+  font-weight: 900;
   border: solid gold;
   border-width: 2px;
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0px 0px 3px 3px gold;
+  color: rgb(255, 255, 255);
+  background-image: url(https://thumbs.dreamstime.com/t/flags-european-union-page-header-countries-size-population-germany-united-kingdom-france-italy-spain-poland-romania-51748941.jpg);
+}
+
+h1 img {
+  opacity: .1;
 }
 
 .code {
@@ -33,7 +42,7 @@ ul li {
 ul li{width:25%; float:left;}
 
 li:hover {
-  color: green;
+  color: rgb(0, 192, 0)
   /* font-size: x-large; */
 }
 
@@ -54,10 +63,15 @@ li:hover {
   /* color: green; */
 }
 
+#outputBlock {
+  margin-bottom: 330px;
+}
+
 #clickP {
   margin: auto;
   display: none;
   text-align: center;
+  margin-top: 50px;
 }
 
 .detLeft {
@@ -65,5 +79,5 @@ li:hover {
 }
 
 .detRight {
-  color: rgb(0, 172, 0);
+  color: rgb(0, 192, 0);
 }

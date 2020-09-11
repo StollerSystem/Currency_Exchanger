@@ -10,7 +10,7 @@ _Built September 11 2020_
 
 This app will allow you to select a currency from the list and then see conversions for all other available currencies.
 
-You can click on all the results to see details.
+You can click on all the results to see details and the country name.
 
 If you select "Error Testistan" from the list it will pass a bad country code for the API call to test the error handling. 
 
