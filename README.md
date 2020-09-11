@@ -16,8 +16,8 @@ _This app will allow you to type in an amount is US dollars and choose which cur
 * Navigate to the cloned folder and run 'npm install' in your terminal to download all dependencies.
 * Open the cloned folder in a text editor of your choice.
 * Create an '.env' FILE in your project root directory.
-* Register for an API key: Navigate to NASA's API generator page in your browser: https://api.nasa.gov/#signUp
-* Register for a key, and copy the key NASA generates and place in your .env file.
+* Register for an API key: Navigate to : https://www.exchangerate-api.com/
+* Register for a key, and copy the key it generates and place in your .env file.
 * In your .env file, add your API Key using this template: "API_KEY=[Your API KEY]" (No brackets around the key.)
 * When you are ready to view your project, run 'npm run start' in your terminal. This command will bundle your code and start a live server, which will open automatically in your browser.
 * Have fun tinkering, you Martian Explorer!
