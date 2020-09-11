@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     let city = $('#location').val();    
 
-    CurrencyExchange.getRates()
+    CurrencyExchange.getRates(curreny)
       .then(function(response) {
         getElements(response);
       });
