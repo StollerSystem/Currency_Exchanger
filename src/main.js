@@ -3,6 +3,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyExchange from './js/currency_exchanger.js';
+import array from './js/temp.js';
 
 class Storage {
   constructor() {
@@ -48,10 +49,24 @@ function attachListeners() {
     console.log(`CLICKED ON ${this.id}`);
     //console.log(StoreResponse.results)
     let id = this.id
+    let countryInfo = ""
+    for (const element of array) {
+      if (element.includes(id)) {
+        console.log(element)
+        countryInfo = element
+        break
+      }
+    }
+      
+      
+    
+
+
     StoreResponse.results.forEach(function(code){
+      console.log(countryInfo)
       if (id === code[0]) {
         console.log(code[1])
-        $("#details").html(`<p>${StoreResponse.results[0][0]}: ${StoreResponse.results[0][1]} to ${code[0]}: ${code[1]}</P`)
+        $("#details").html(`<p>${StoreResponse.results[0][1]} ${StoreResponse.results[0][0]} equals ${code[1]} ${countryInfo}</P`)
       }
     })
     $("#details p").show();
