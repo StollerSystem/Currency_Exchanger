@@ -8,6 +8,7 @@ import CurrencyExchange from './js/currency_exchanger.js';
 
 $(document).ready(function() {
   $('#getRates').click(function() {
+    $("#output").html("")
     let currency = $("#currency").val();
     CurrencyExchange.getRates(currency)
       .then(function(response) {

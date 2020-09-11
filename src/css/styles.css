@@ -31,3 +31,8 @@ ul li {
 } */
 
 ul li{width:25%; float:left;}
+
+li:hover {
+  color: green;
+  /* font-size: x-large; */
+}
