@@ -40,3 +40,13 @@ li:hover {
 #date {
   text-align: center;
 }
+
+#details {
+  display: none;
+  text-align: center;
+  border: solid gold;
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 3px 3px gold;
+}

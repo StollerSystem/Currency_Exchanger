@@ -4,8 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyExchange from './js/currency_exchanger.js';
 
-let StoreResponse = {results:[]}
-
+class Storage {
+  constructor() {
+    this.results = []
+  }
+}
+ let StoreResponse = new Storage();
 
 $(document).ready(function() {
   attachListeners();
@@ -39,8 +43,17 @@ function getElements (response) {
 
 function attachListeners() {
   $("ul#output").on("click",".rateItem", function(){
+    $("#details").show();
     console.log(`CLICKED ON ${this.id}`);
-
+    //console.log(StoreResponse.results)
+    let id = this.id
+    StoreResponse.results.forEach(function(code){
+      if (id === code[0]) {
+        console.log(code[1])
+        $("#details").html(`<p>${StoreResponse.results[0][0]}: ${StoreResponse.results[0][1]} to 
+          ${code[0]}: ${code[1]}</P`)
+      }
+    })
 
 
   });
