@@ -3,7 +3,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyExchange from './js/currency_exchanger.js';
-import array from './js/country_info.js';
+import countryArray from './js/country_info.js';
 
 class Storage {
   constructor() {
@@ -27,17 +27,14 @@ $(document).ready(function() {
   });
 });
 
+
 function getElements (response) {
-  if (response.result === "success") {
-    // console.log(response);
-    // let date = 
-    $("#date").html(`(Last updated ${response.time_last_update_utc.slice(0,25)})`);
-    StoreResponse.results = Object.entries(response.conversion_rates);
-    // console.log(results);
+  if (response.result === "success") {    
+    $("#date").html(`(Rates last updated ${response.time_last_update_utc.slice(0,25)})`);
+    StoreResponse.results = Object.entries(response.conversion_rates);    
     StoreResponse.results.forEach(function(rate){
       $("#output").append(`<li class="rateItem" id="${rate[0]}"><span class="code">${rate[0]}</span>: <span class="rate">${rate[1]}</span></li>`);
-    });
-    
+    });    
   } else if (response.result === "error") {
     $("#output").text(`There was an error: ${response["error-type"]}`);
   } else {
@@ -45,24 +42,25 @@ function getElements (response) {
   }
 }
 
+
 function attachListeners() {
   $("ul#output").on("click",".rateItem", function(){    
-    console.log(`CLICKED ON ${this.id}`);
-    //console.log(StoreResponse.results)
+    console.log(`CLICKED ON ${this.id}`);    
     let id = this.id;
     let countryInfo = "";
-    for (const element of array) {
+    for (const element of countryArray) {
       if (element.includes(id)) {
-        console.log(element);
-        countryInfo = element;
+        //console.log(element);
+        countryInfo = element.split("-");
         break;
       }
     }
+    //console.log(countryInfo.split("-"))
     StoreResponse.results.forEach(function(code){
-      console.log(countryInfo);
+      //console.log(countryInfo);
       if (id === code[0]) {
-        console.log(code[1]);
-        $("#details").html(`<p><span class="detLeft">${StoreResponse.results[0][1]} ${StoreResponse.results[0][0]}</span> equals <span class="detRight">${code[1]} ${countryInfo}</span></p`);
+        //console.log(code[1]);
+        $("#details").html(`<p><span class="detLeft">${StoreResponse.results[0][1]} ${StoreResponse.results[0][0]}</span> equals <span class="detMid">${code[1]}</span>${countryInfo[1]} (${countryInfo[2]} )</p`);
       }
     });
     $("#details p").show();
