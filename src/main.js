@@ -60,7 +60,7 @@ function attachListeners() {
       //console.log(countryInfo);
       if (id === code[0]) {
         //console.log(code[1]);
-        $("#details").html(`<p><span class="detLeft">${StoreResponse.results[0][1]} ${StoreResponse.results[0][0]}</span> equals <span class="detMid">${code[1]}</span>${countryInfo[1]} (${countryInfo[2]} )</p`);
+        $("#details").html(`<p><span class="detMid">${StoreResponse.results[0][1]}</span> <span class="detLeft">${StoreResponse.results[0][0]}</span> equals <span class="detMid">${code[1]} </span><span class="detCount">${countryInfo[1]}</span> (${countryInfo[2]})</p`);
       }
     });
     $("#details p").show();
