@@ -36,3 +36,7 @@ li:hover {
   color: green;
   /* font-size: x-large; */
 }
+
+#date {
+  text-align: center;
+}

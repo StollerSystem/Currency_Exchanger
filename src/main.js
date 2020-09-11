@@ -20,6 +20,8 @@ $(document).ready(function() {
 function getElements (response) {
   if (response.result === "success") {
     // console.log(response);
+    // let date = 
+    $("#date").html(`Last updated ${response.time_last_update_utc.slice(0,17)}<br>`)
     let results = Object.entries(response.conversion_rates);
     // console.log(results);
     results.forEach(function(rate){
@@ -31,5 +33,5 @@ function getElements (response) {
   } else {
     $("#output").text(`There was an error: ${response.message}`);
   }
-
 }
+
