@@ -7,6 +7,7 @@ import CurrencyExchange from './js/currency_exchanger.js';
 
 
 $(document).ready(function() {
+  attachListeners();
   $('#getRates').click(function() {
     $("#output").html("")
     let currency = $("#currency").val();
@@ -21,11 +22,11 @@ function getElements (response) {
   if (response.result === "success") {
     // console.log(response);
     // let date = 
-    $("#date").html(`Last updated ${response.time_last_update_utc.slice(0,17)}<br>`)
+    $("#date").html(`(Last updated ${response.time_last_update_utc.slice(0,26)})`)
     let results = Object.entries(response.conversion_rates);
     // console.log(results);
     results.forEach(function(rate){
-      $("#output").append(`<li><span class="code">${rate[0]}</span>: <span class="rate">${rate[1]}</span></li>`);
+      $("#output").append(`<li class="rateItem" id="${rate[0]}"><span class="code">${rate[0]}</span>: <span class="rate">${rate[1]}</span></li>`);
     });
     
   } else if (response.result === "error") {
@@ -35,3 +36,9 @@ function getElements (response) {
   }
 }
 
+function attachListeners() {
+  $("ul#output").on("click",".rateItem", function(){
+    console.log(`CLICKED ON ${this.id}`)
+  });
+
+}
