@@ -45,21 +45,17 @@ function getElements (response) {
 
 function attachListeners() {
   $("ul#output").on("click",".rateItem", function(){    
-    console.log(`CLICKED ON ${this.id}`);    
+    //console.log(`CLICKED ON ${this.id}`);    
     let id = this.id;
     let countryInfo = "";
     for (const element of countryArray) {
-      if (element.includes(id)) {
-        //console.log(element);
+      if (element.includes(id)) {       
         countryInfo = element.split("-");
         break;
       }
-    }
-    //console.log(countryInfo.split("-"))
-    StoreResponse.results.forEach(function(code){
-      //console.log(countryInfo);
-      if (id === code[0]) {
-        //console.log(code[1]);
+    }    
+    StoreResponse.results.forEach(function(code){      
+      if (id === code[0]) {        
         $("#details").html(`<p><span class="detMid">${StoreResponse.results[0][1]}</span> <span class="detLeft">${StoreResponse.results[0][0]}</span> equals <span class="detMid">${code[1]} </span><span class="detCount">${countryInfo[1]}</span> (${countryInfo[2]})</p`);
       }
     });

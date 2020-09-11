@@ -1,6 +1,6 @@
 # _Currency Exchanger_
 
-_Built September 11 2020_
+_Built 09/11/2020_
 
 #### _An application for checking currency exchange rates_
 
@@ -17,7 +17,7 @@ If you select "Error Testistan" from the list it will pass a bad country code fo
 
 ## Setup/Installation Requirements
 
-* Clone this project using the 'git clone' command in terminal/command line.
+* Clone this project using the 'git clone' command in your terminal/command line.
 * Navigate to the cloned folder in your terminal and run 'npm install'  to download all dependencies for the webpack environment.
 * Open the cloned folder in a text editor of your choice.
 * Create an '.env' FILE in your project root directory.
@@ -28,7 +28,7 @@ If you select "Error Testistan" from the list it will pass a bad country code fo
 
 ## Known Bugs
 
-_There are no known bugs at this time._
+There may be some sizing/layout issues depending on your screen size and device/browser.
 
 ## Technologies Used
 

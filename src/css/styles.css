@@ -29,16 +29,6 @@ p {
   color: silver;
 }
 
-/* ul {
-  flex-direction: column;
-  flex-wrap: wrap;
-  display: flex;
-  height: 200px;
-}
-ul li {
-  flex: 5 5 25%;
-} */
-
 ul li{width:25%; float:left;}
 
 li:hover {
@@ -53,14 +43,8 @@ li:hover {
 #details p{
   margin: auto;
   display: none;
-  text-align: center;
-  /* border: solid gold;
-  border-width: 2px;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0px 0px 3px 3px gold; */
-  font-size: xx-large;
-  /* color: green; */
+  text-align: center;  
+  font-size: xx-large;  
 }
 
 #outputBlock {
@@ -86,6 +70,3 @@ li:hover {
   color: silver;
 }
 
-.btn {
-  background-color: rgb(0, 192, 0);
-}
