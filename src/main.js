@@ -18,15 +18,17 @@ $(document).ready(function() {
 
 function getElements (response) {
   if (response.result === "success") {
-    console.log(response);
-    let results = Object.entries(response.conversion_rates)
-    console.log(results);
+    // console.log(response);
+    let results = Object.entries(response.conversion_rates);
+    // console.log(results);
     results.forEach(function(rate){
-      $("#output").append(`${rate[0]}:${rate[1]}<br>`)
-    })
+      $("#output").append(`${rate[0]}:${rate[1]}<br>`);
+    });
     
+  } else if (response.result === "error") {
+    $("#output").text(`There was an error: ${response["error-type"]}`);
   } else {
-    $("").text(`There was an error: ${response.message}`);
+    $("#output").text(`There was an error: ${response.message}`);
   }
 
 }
