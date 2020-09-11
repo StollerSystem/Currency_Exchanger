@@ -44,8 +44,7 @@ function getElements (response) {
 
 
 function attachListeners() {
-  $("ul#output").on("click",".rateItem", function(){    
-    //console.log(`CLICKED ON ${this.id}`);    
+  $("ul#output").on("click",".rateItem", function(){        
     let id = this.id;
     let countryInfo = "";
     for (const element of countryArray) {
@@ -55,9 +54,16 @@ function attachListeners() {
       }
     }    
     StoreResponse.results.forEach(function(code){      
-      if (id === code[0]) {
-        // let flagCode = "be"        
-        $("#details").html(`<p><span class="detMid">${StoreResponse.results[0][1]}</span> <span class="detLeft">${StoreResponse.results[0][0]}</span> equals <span class="detMid">${code[1]} </span><span class="detCount">${countryInfo[1]}</span> (${countryInfo[2]})  <img src="https://www.countryflags.io/${countryInfo[3]}/shiny/64.png"></p`);
+      if (id === code[0]) {    
+        let flagCode = ""
+        for (const element of countryArray) {
+          if (element.includes(StoreResponse.results[0][0])) {       
+            let info = element.split("-");
+            flagCode = info[3]
+            break;
+          }
+        }        
+        $("#details").html(`<p><img src="https://www.countryflags.io/${flagCode}/shiny/64.png">  <span class="detMid">${StoreResponse.results[0][1]}</span> <span class="detLeft">${StoreResponse.results[0][0]}</span> = <span class="detMid">${code[1]} </span><span class="detCount">${countryInfo[1]}</span> (${countryInfo[2]})  <img src="https://www.countryflags.io/${countryInfo[3]}/shiny/64.png"></p`);
       }
     });
     $("#details p").show();
