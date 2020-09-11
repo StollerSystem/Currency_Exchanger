@@ -2,16 +2,14 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import CurrencyExchange from './js/currency_exchanger.js'
+import CurrencyExchange from './js/currency_exchanger.js';
 
 
 
 $(document).ready(function() {
   $('#getRates').click(function() {
-
-    let city = $('#location').val();    
-
-    CurrencyExchange.getRates(curreny)
+    let currency = $("#currency").val();
+    CurrencyExchange.getRates(currency)
       .then(function(response) {
         getElements(response);
       });
@@ -19,10 +17,16 @@ $(document).ready(function() {
 });
 
 function getElements (response) {
-  if (response) {
-
+  if (response.result === "success") {
+    console.log(response);
+    let results = Object.entries(response.conversion_rates)
+    console.log(results);
+    results.forEach(function(rate){
+      $("#output").append(`${rate[0]}:${rate[1]}<br>`)
+    })
+    
   } else {
-    $("").text(`There was an error: ${response.message}`)
+    $("").text(`There was an error: ${response.message}`);
   }
 
 }
