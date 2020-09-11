@@ -51,5 +51,19 @@ li:hover {
   padding: 10px;
   box-shadow: 0px 0px 3px 3px gold; */
   font-size: xx-large;
-  color: green;
+  /* color: green; */
+}
+
+#clickP {
+  margin: auto;
+  display: none;
+  text-align: center;
+}
+
+.detLeft {
+  color: white;
+}
+
+.detRight {
+  color: rgb(0, 172, 0);
 }

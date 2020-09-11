@@ -3,11 +3,11 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyExchange from './js/currency_exchanger.js';
-import array from './js/temp.js';
+import array from './js/country_info.js';
 
 class Storage {
   constructor() {
-    this.results = []
+    this.results = [];
   }
 }
 
@@ -17,6 +17,7 @@ $(document).ready(function() {
   attachListeners();
   $('#getRates').click(function() {
     $("#output").html("");
+    $("#clickP").show();
     let currency = $("#currency").val();
     CurrencyExchange.getRates(currency)
       .then(function(response) {
@@ -29,7 +30,7 @@ function getElements (response) {
   if (response.result === "success") {
     // console.log(response);
     // let date = 
-    $("#date").html(`(Last updated ${response.time_last_update_utc.slice(0,26)})`);
+    $("#date").html(`(Last updated ${response.time_last_update_utc.slice(0,25)})`);
     StoreResponse.results = Object.entries(response.conversion_rates);
     // console.log(results);
     StoreResponse.results.forEach(function(rate){
@@ -44,31 +45,25 @@ function getElements (response) {
 }
 
 function attachListeners() {
-  $("ul#output").on("click",".rateItem", function(){
-    
+  $("ul#output").on("click",".rateItem", function(){    
     console.log(`CLICKED ON ${this.id}`);
     //console.log(StoreResponse.results)
-    let id = this.id
-    let countryInfo = ""
+    let id = this.id;
+    let countryInfo = "";
     for (const element of array) {
       if (element.includes(id)) {
-        console.log(element)
-        countryInfo = element
-        break
+        console.log(element);
+        countryInfo = element;
+        break;
       }
     }
-      
-      
-    
-
-
     StoreResponse.results.forEach(function(code){
-      console.log(countryInfo)
+      console.log(countryInfo);
       if (id === code[0]) {
-        console.log(code[1])
-        $("#details").html(`<p>${StoreResponse.results[0][1]} ${StoreResponse.results[0][0]} equals ${code[1]} ${countryInfo}</P`)
+        console.log(code[1]);
+        $("#details").html(`<p><span class="detLeft">${StoreResponse.results[0][1]} ${StoreResponse.results[0][0]}</span> equals <span class="detRight">${code[1]} ${countryInfo}</span></p`);
       }
-    })
+    });
     $("#details p").show();
   });
 }
