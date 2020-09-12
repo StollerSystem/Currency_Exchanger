@@ -14,6 +14,8 @@ You can click on all the results to see details, the country name...and FLAGS!
 
 If you select "Error Testistan" from the list it will pass a bad country code for the API call to test the error handling. 
 
+It will also display the last time the rates were updated.
+
 
 ## Setup/Installation Requirements
 
